@@ -1,5 +1,5 @@
 class TodoItem
-  # include Listable
+  include Listable
   attr_reader :description, :due, :priority
 
   def initialize(description, options={})
@@ -18,7 +18,7 @@ class TodoItem
     return value
   end
   def details
-    format_description + "due: " +
+    format_description(@description) + "due: " +
     format_date +
     format_priority
   end

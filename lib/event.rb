@@ -1,5 +1,5 @@
 class EventItem
-  # include Listable
+  include Listable
   attr_reader :description, :start_date, :end_date
 
   def initialize(description, options={})
@@ -14,6 +14,6 @@ class EventItem
     return dates
   end
   def details
-    format_description + "event dates: " + format_date
+    format_description(@description) + "event dates: " + format_date
   end
 end
