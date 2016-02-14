@@ -22,7 +22,7 @@ class UdaciList
   end
 
   def filter(type)
-   @items.select { |item| item.item_type == type }
+   @items.select { |item| item.item_type == type } || "No #{type} items"
   end
 
   def all
@@ -37,7 +37,6 @@ class UdaciList
   private
 
   def validity_check(type, description, options)
-    new_object = false
     new_object = TodoItem.new(description, options) if type == "todo"
     new_object = EventItem.new(description, options) if type == "event"
     new_object = LinkItem.new(description, options) if type == "link"

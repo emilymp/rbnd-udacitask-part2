@@ -20,8 +20,7 @@ class TodoItem
   private
 
   def priority_valid
-    valid = (%w(high medium low).include? @priority) || !@priority
-    return valid
+    (%w(high medium low).include? @priority) || !@priority
   end
 
 end
