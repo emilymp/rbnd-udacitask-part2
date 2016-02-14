@@ -21,6 +21,10 @@ class UdaciList
     @items.delete_at(index - 1)
   end
 
+  def filter(type)
+   @items.select { |item| item.item_type == type }
+  end
+
   def all
     puts "-" * @title.length
     puts @title
