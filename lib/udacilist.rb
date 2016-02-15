@@ -22,7 +22,10 @@ class UdaciList
   end
 
   def filter(type)
-   @items.select { |item| item.item_type == type } || "No #{type} items"
+    filtered = @items.select { |item| item.item_type == type }
+    puts "No #{type} items in #{title}" if filtered.empty?
+    return filtered
+
   end
 
   def all
