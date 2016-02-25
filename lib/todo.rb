@@ -17,6 +17,12 @@ class TodoItem
     format_priority(@priority)
   end
 
+  def data
+    date = format_date(start_date: @due, str: "No due date")
+    priority = @priority.capitalize if @priority
+    {description: @description, date: date, priority: priority}
+  end
+
   private
 
   def priority_valid

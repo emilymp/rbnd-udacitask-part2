@@ -22,7 +22,7 @@ module Listable
     return dates
   end
 
-    def item_type
-      self.type
-    end
+  def item_type
+    self.type
+  end
 end

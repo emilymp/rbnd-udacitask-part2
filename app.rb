@@ -1,14 +1,18 @@
- require 'chronic'
- require 'colorize'
+require 'chronic'
+require 'colorize'
 # Find a third gem of your choice and add it to your project
 require 'date'
+require 'builder'
 
 require_relative "lib/listable"
 require_relative "lib/errors"
+require_relative "lib/htmlmaker"
 require_relative "lib/udacilist"
 require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
+require_relative "lib/img.rb"
+
 
 list = UdaciList.new(title: "Julia's Stuff")
 list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
@@ -27,9 +31,9 @@ new_list = UdaciList.new # Should create a list called "Untitled List"
 new_list.add("todo", "Buy more dog food", due: "in 5 weeks", priority: "medium")
 new_list.add("todo", "Go dancing", due: "in 2 hours")
 new_list.add("todo", "Buy groceries", priority: "high")
-#new_list.add("event", "Birthday Party", start_date: "May 31")
-#new_list.add("event", "Vacation", start_date: "Dec 20", end_date: "Dec 30")
-#new_list.add("event", "Life happens")
+new_list.add("event", "Birthday Party", start_date: "May 31")
+new_list.add("event", "Vacation", start_date: "Dec 20", end_date: "Dec 30")
+new_list.add("event", "Life happens")
 new_list.add("link", "https://www.udacity.com/", site_name: "Udacity Homepage")
 new_list.add("link", "http://ruby-doc.org")
 
@@ -46,3 +50,13 @@ new_list.add("link", "http://ruby-doc.org")
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+
+# DEMO NEW FEATURES
+# ------------------------
+
+
+new_list.add("img", "penguin", src: "http://static.ddmcdn.com/gif/penguin-slideshow-141121-78754162.jpg")
+new_list.add("img", "cupcake", src: "http://thumbs.dreamstime.com/x/purple-cupcake-13592346.jpg")
+
+new_list.to_html
+list.to_html
