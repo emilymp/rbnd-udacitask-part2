@@ -1,13 +1,26 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+I used "builder" in order to automate the creation of an HTML file that will display the List.
+
 2. Describe the 2 features you added to the project.
   a) Feature 1...
+  The UdaciList method to_html uses the HTMLMaker module to format the list into an HTML file with the information organized into tables.
   b) Feature 2...
-
+  I created the ImageItem class to support images as a list item-type.
+  
+  
+  
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+Too long-- I have been working on this over the course of several weeks. However, this is mostly because I have been busy and haven't had the time to put into it.
+
 2. What was the most rewarding challenge you conquered?
+Figuring out how to use the builder gem-- I spent are really long time making test cases to help figure it out.
+
 3. What two additional features did you build? Why?
+I created a feature to nicely format the lists into html tables because I figured the list would only be useful if you could easily see the information, and I also wanted to learn about automating markup languages. The second feature was support for images as item-types, because I thought it would be fun to display them on the html file.
+
 4. Where do you still have room to grow?
+Style/neatness, understanding bigger concepts like what actually happens when you raise/rescue an error, inputing data at the command line or on a form that adds it to a Udacilist
