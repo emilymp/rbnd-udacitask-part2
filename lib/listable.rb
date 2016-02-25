@@ -1,7 +1,7 @@
 module Listable
   # Listable methods go here
-  def format_description(description)
-    "#{description}".ljust(25)
+  def format_description(description, type)
+    "#{type}".ljust(10) + "#{description}".ljust(25)
   end
 
   def format_priority(priority)
@@ -20,9 +20,5 @@ module Listable
     dates << " -- " + (end_date).strftime("%D") if end_date
     dates = op[:str] if !dates
     return dates
-  end
-
-  def item_type
-    self.type
   end
 end

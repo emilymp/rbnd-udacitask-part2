@@ -1,9 +1,11 @@
 class UdaciList
   include HtmlMaker
-  attr_reader :title, :items
+  attr_reader :title, :items, :types
+
 
   def initialize(options={})
     @title = options[:title] || "Untitled List"
+    @types = {todo: TodoItem, event: EventItem, link: LinkItem, img: ImageItem}
     @items = []
   end
   
@@ -23,7 +25,7 @@ class UdaciList
   end
 
   def filter(type)
-    filtered = @items.select { |item| item.item_type == type }
+    filtered = @items.select { |item| item.type == type }
     filtered.empty? ? (puts "no items of type #{type}") : filtered
   end
 
@@ -44,11 +46,7 @@ class UdaciList
   private
 
   def validity_check(type, description, options)
-    new_object = TodoItem.new(description, options) if type == "todo"
-    new_object = EventItem.new(description, options) if type == "event"
-    new_object = LinkItem.new(description, options) if type == "link"
-    new_object = ImageItem.new(description, options) if type == "img"
-    return new_object 
+    @types[type.to_sym].new(description, options) if @types.key? type.to_sym
   end
 
 end

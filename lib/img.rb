@@ -9,7 +9,7 @@ class ImageItem
   end
   
   def details
-    format_description(@description) + "source: " + @src
+    format_description(@description, @type) + "source: " + @src
   end
   
   def data
